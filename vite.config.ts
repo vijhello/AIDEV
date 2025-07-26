@@ -9,18 +9,6 @@ import { defineConfig } from 'vite';
 
 dotenv.config();
 
-export default defineConfig({
-  // Existing configurations (if any)...
-  server: {
-    allowedHosts: [
-      'my-app1-r5is.onrender.com', // Your Render hostname
-      'localhost', // For local testing
-    ],
-  },
-});
-
-
-
 export default defineConfig((config) => {
   return {
     define: {
@@ -29,6 +17,12 @@ export default defineConfig((config) => {
     build: {
       target: 'esnext',
     },
+    server: {
+    allowedHosts: [
+      'my-app1-r5is.onrender.com', // Your Render hostname
+      'localhost', // For local testing
+    ],
+  },
     plugins: [
       nodePolyfills({
         include: ['buffer', 'process', 'util', 'stream'],

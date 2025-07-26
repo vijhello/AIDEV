@@ -5,8 +5,21 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import * as dotenv from 'dotenv';
+import { defineConfig } from 'vite';
 
 dotenv.config();
+
+export default defineConfig({
+  // Existing configurations (if any)...
+  server: {
+    allowedHosts: [
+      'my-app1-r5is.onrender.com', // Your Render hostname
+      'localhost', // For local testing
+    ],
+  },
+});
+
+
 
 export default defineConfig((config) => {
   return {
